@@ -25,7 +25,7 @@ body {
 #price-list {
   background-color: rgb(255, 255, 255);
   border-radius: 2rem 1rem 1rem 2rem;
-  width: 100%;
+  width: 400px;
   height: 300px;
   padding: 10px;
   overflow-y: auto;
@@ -121,3 +121,4 @@ img {
     margin-top: 20px;
   }
 }
+
