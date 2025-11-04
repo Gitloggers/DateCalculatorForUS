@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!--BODY-->
+<body>
+    <div class="list-container">
+        <h1>List Calculator</h1>
+        <div class="input-contianer">
+            <input type="text" placeholder="Item Name" id="price-name">
+            <input type="text" placeholder="Price" id="price">
+            <button id="add-btn">Add</button>
+        </div>
+        <ul id="price-list"></ul>
+        <h2>Total Price: ₱<span id="total">0</span></h2>
+        <div class="btn-wrapper">
+            <button id="reset-btn">Reset</button>
+            <button id="half-btn">Divide</button>
+        </div>
+        
+    </div>
+    <img src="https://media.tenor.com/kjiaai1K8aUAAAAe/ballin-cat.png" alt="ballin-cat">
+</body>
+
+<!--SCRIPT-->
+<script>
+        const addBtn = document.getElementById('add-btn');
+        const inputPrice = document.getElementById('price');
+        const inputName = document.getElementById('price-name');
+        const priceList = document.getElementById('price-list');
+        const totalDisplay = document.getElementById('total');
+
+        let total = 0;
+
+        addBtn.addEventListener('click', () => {
+        const name = inputName.value.trim();
+        const price = parseFloat(inputPrice.value);
+
+        if (!isNaN(price)) {
+            const itemname = name || 'Unamed item';
+
+             const li = document.createElement('li');
+            li.textContent = `${name}: ₱${price.toFixed(2)} `;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '×';
+        removeBtn.classList.add('remove-btn');
+        removeBtn.addEventListener('click', () => {
+            total -= price;
+            totalDisplay.textContent = total.toFixed(2);
+            priceList.removeChild(li);
+    });
+
+            li.appendChild(removeBtn);
+            priceList.appendChild(li);
+
+            total += price;
+            totalDisplay.textContent = total.toFixed(2);
+
+            inputName.value = '';
+            inputPrice.value = '';
+         }
+        });
+        
+        const resetbtn = document.getElementById('reset-btn');
+        resetbtn.addEventListener('click', () => {
+            priceList.innerHTML = '';
+
+            total = 0;
+            totalDisplay.textContent = total.toFixed(2);
+
+            inputName = '';
+            inputPrice = '';
+        });
+
+        inputPrice.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                addBtn.click();
+            }
+        });
+
+        const halfbtn = document.getElementById('half-btn');
+        halfbtn.addEventListener('click', () => {
+            total = total / 2;
+            totalDisplay.textContent = total.toFixed(2);
+        });
+    </script>
+</html>
