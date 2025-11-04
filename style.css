@@ -31,7 +31,7 @@ h1 {
 #price-list {
   background-color: white;
   border-radius: 1rem;
-  width: 87%;
+  width: 85%;
   height: 250px;
   padding: 25px;
   overflow-y: auto;
@@ -102,3 +102,4 @@ img {
     font-size: 1.6rem;
   }
 }
+
