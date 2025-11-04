@@ -90,7 +90,7 @@ img {
   }
 
   #price-list {
-    width: 100%;
+    width: 80%;
     height: 250px;
   }
 
@@ -98,7 +98,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 80%;
   }
 
   #price,
@@ -106,7 +106,7 @@ img {
   #add-btn,
   #reset-btn,
   #half-btn {
-    width: 100%;
+    width: 20%;
     margin: 0;
   }
 
@@ -117,8 +117,9 @@ img {
   }
 
   img {
-    width: 80%;
+    width: 30%;
     margin-top: 20px;
   }
 }
+
 
